@@ -1,0 +1,19 @@
+<div class="card-body" [hidden]="hideTodo">
+    <div class="row">
+        <div class="col-4 col-sm-4 col-md-4">
+            <h3>{{todo.title}}</h3>
+        </div>
+        <div class="col-8 col-sm-8 col-md-8">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" [id]="todo.id" [checked]="todo.completed" (change)="changeComplete($event)">
+                <label class="custom-control-label" [for]="todo.id">Complete</label>
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+    <button class="btn btn-outline-info">More Info</button>
+    <button class="btn btn-outline-info" (click)="showEditForm($event)">Edit</button>
+    <button class="btn btn-outline-info" (click)="delete($event)">Delete</button>
+</div>
+
+<app-todo-edit [hidden]="!hideTodo" [value]="todo" (updated)="showTodo($event)"></app-todo-edit>

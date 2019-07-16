@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        
+        <div class="col-8 col-sm-8 col-md-8">
+            <ul class="list-group" style="width: 50rem;">
+                <li *ngFor="let todo of todos" class="list-group-item">
+                    <div class="row">
+                        <div class="col-1 col-sm-1 col-md-1"></div>
+                        <div class="col-11 col-sm-11 col-md-11">
+                            <app-todo [value]="todo" (delTodo)=delete($event)></app-todo>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-1 col-sm-1 col-md-1"></div>
+
+        <div class="custom-control custom-switch" [hidden]="todos.length===0">
+            <input type="checkbox" class="custom-control-input" id="switch2" (change)="completeAll($event)">
+            <label class="custom-control-label" for="switch2">Complete All</label>
+        </div>
+
+    </div>
+</div>

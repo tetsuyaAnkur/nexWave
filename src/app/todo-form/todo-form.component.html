@@ -1,0 +1,7 @@
+
+<form [formGroup]="todoForm">
+    <input type="text" placeholder="Enter Title" formControlName="title" required>
+    <button class="btn btn-info" (click)="addTodo($event)" [disabled]="(todoForm.controls['title'].errors && todoForm.controls['title'].errors.required)">Add</button>
+    <div [hidden]="!(todoForm.controls['title'].errors && todoForm.controls['title'].errors.required)">Title is required.</div>
+</form>
+
